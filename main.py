@@ -1,5 +1,6 @@
 from models.process import Process
 from scheduler.fifo_scheduler import FIFOScheduler
+from scheduler.lifo_scheduler import LIFOScheduler
 from scheduler.rr_scheduler import RRScheduler
 from scheduler.sjf_scheduler import SJFScheduler
 from gantt.chart import Drawer
@@ -11,7 +12,7 @@ __author__ = 'bardia'
 
 if __name__ == '__main__':
     log = []
-    scheduler = RRScheduler()
+    scheduler = LIFOScheduler()
     scheduler.add(Process(5))
     scheduler.add(Process(4))
     log.append((scheduler.get(), scheduler.time))
