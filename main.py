@@ -1,4 +1,5 @@
 from models.process import Process
+from scheduler.fifo_scheduler import FIFOScheduler
 from scheduler.sjf_scheduler import SJFScheduler
 
 __author__ = 'bardia'
@@ -7,7 +8,7 @@ __author__ = 'bardia'
 
 
 if __name__ == '__main__':
-    scheduler = SJFScheduler()
+    scheduler = FIFOScheduler()
     scheduler.add(Process(5))
     scheduler.add(Process(4))
     print scheduler.get()
