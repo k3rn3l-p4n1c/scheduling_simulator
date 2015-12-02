@@ -4,6 +4,7 @@ from scheduler.lifo_scheduler import LIFOScheduler
 from scheduler.rr_scheduler import RRScheduler
 from scheduler.sjf_scheduler import SJFScheduler
 from gantt.chart import Drawer
+from scheduler.srt_scheduler import SRTScheduler
 
 __author__ = 'bardia'
 
@@ -12,8 +13,9 @@ __author__ = 'bardia'
 
 if __name__ == '__main__':
     log = []
-    scheduler = LIFOScheduler()
+    scheduler = SRTScheduler()
     scheduler.add(Process(5))
+    log.append((scheduler.get(), scheduler.time))
     scheduler.add(Process(4))
     log.append((scheduler.get(), scheduler.time))
     scheduler.add(Process(1))
