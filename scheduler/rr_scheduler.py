@@ -19,7 +19,7 @@ class RRScheduler(AbstractScheduler):
         self.iterator += 1
         if self.iterator >= len(self.process_list):
             self.iterator = 0
-            
+
         job = self.process_list[self.iterator]
 
         return job
