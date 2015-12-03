@@ -13,7 +13,8 @@ class FIFOScheduler(AbstractScheduler):
         if len(self.process_list) == 0:
             return None
         first_job = self.process_list[0]
-        first_job.remaining -= 1
-        if first_job.remaining == 0:
-            self.process_list.remove(first_job)
+
         return first_job
+
+    def remove(self, process):
+        self.process_list.remove(process)

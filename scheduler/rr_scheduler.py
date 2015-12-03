@@ -16,14 +16,13 @@ class RRScheduler(AbstractScheduler):
         if len(self.process_list) == 0:
             return None
 
-        job = self.process_list[self.iterator]
-        job.remaining -= 1
-
-        if job.remaining == 0:
-            self.process_list.remove(job)
-
         self.iterator += 1
         if self.iterator >= len(self.process_list):
             self.iterator = 0
+            
+        job = self.process_list[self.iterator]
 
         return job
+
+    def remove(self, process):
+        self.process_list.remove(process)

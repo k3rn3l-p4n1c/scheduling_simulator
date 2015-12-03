@@ -13,7 +13,8 @@ class LIFOScheduler(AbstractScheduler):
         if len(self.process_list) == 0:
             return None
         last_job = self.process_list[-1]
-        last_job.remaining -= 1
-        if last_job.remaining == 0:
-            self.process_list.remove(last_job)
+
         return last_job
+
+    def remove(self, process):
+        self.process_list.remove(process)
