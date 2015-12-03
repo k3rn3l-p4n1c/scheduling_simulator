@@ -8,9 +8,6 @@ class SRTScheduler(AbstractScheduler):
     Using Short remaining time algorithm for scheduling
     """
 
-    def add(self, process):
-        super(SRTScheduler, self).add(process)
-
     def get(self):
         super(SRTScheduler, self).get()
         if len(self.process_list) == 0:

@@ -11,9 +11,6 @@ class RRScheduler(AbstractScheduler):
         super(RRScheduler, self).__init__()
         self.iterator = 0
 
-    def add(self, process):
-        super(RRScheduler, self).add(process)
-
     def get(self):
         super(RRScheduler, self).get()
         if len(self.process_list) == 0:

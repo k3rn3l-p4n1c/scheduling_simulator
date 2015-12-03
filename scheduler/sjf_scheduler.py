@@ -8,9 +8,6 @@ class SJFScheduler(AbstractScheduler):
     Using Short job first algorithm for scheduling
     """
 
-    def add(self, process):
-        super(SJFScheduler, self).add(process)
-
     def get(self):
         super(SJFScheduler, self).get()
         if len(self.process_list) == 0:

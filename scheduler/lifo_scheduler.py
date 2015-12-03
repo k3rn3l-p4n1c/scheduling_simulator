@@ -8,9 +8,6 @@ class LIFOScheduler(AbstractScheduler):
     Using first in first out algorithm
     """
 
-    def add(self, process):
-        super(LIFOScheduler, self).add(process)
-
     def get(self):
         super(LIFOScheduler, self).get()
         if len(self.process_list) == 0:

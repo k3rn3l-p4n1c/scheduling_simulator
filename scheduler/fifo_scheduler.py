@@ -8,9 +8,6 @@ class FIFOScheduler(AbstractScheduler):
     Using first in first out algorithm
     """
 
-    def add(self, process):
-        super(FIFOScheduler, self).add(process)
-
     def get(self):
         super(FIFOScheduler, self).get()
         if len(self.process_list) == 0:
