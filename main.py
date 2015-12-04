@@ -49,12 +49,21 @@ if __name__ == '__main__':
     simulator = Simulator(cpu, delay)
 
     print('Enter 0 to exit')
+    print "Enter execution time of incoming process:"
     simulator.start()
+
+    all_process = []
+
     while True:
-        execution_time = input("Enter execution time of incoming process:")
+        execution_time = input()
         if execution_time == 0:
             simulator.finish_signal()
             break
-        cpu.add(Process(execution_time))
+        process = Process(execution_time)
+        cpu.add(process)
+        all_process.append(process)
 
+    print 'Average waiting time: {}'.format(sum([p.wait for p in all_process])/len(all_process))
+    print 'Average response time: {}'.format(sum([p.response_time for p in all_process])/len(all_process))
+    print 'Average turn around time: {}'.format(sum([p.turn_around for p in all_process])/len(all_process))
     draw(cpu.log)
