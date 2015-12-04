@@ -5,7 +5,7 @@ from scheduler.fifo_scheduler import FIFOScheduler
 from scheduler.lifo_scheduler import LIFOScheduler
 from scheduler.rr_scheduler import RRScheduler
 from scheduler.sjf_scheduler import SJFScheduler
-from gantt.chart import Drawer
+from gantt.chart import draw
 from scheduler.srt_scheduler import SRTScheduler
 from simulator import Simulator
 
@@ -49,9 +49,12 @@ if __name__ == '__main__':
     simulator = Simulator(cpu, delay)
 
     print('Enter 0 to exit')
+    simulator.start()
     while True:
         execution_time = input("Enter execution time of incoming process:")
         if execution_time == 0:
             simulator.finish_signal()
             break
         cpu.add(Process(execution_time))
+
+    draw(cpu.log)

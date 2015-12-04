@@ -8,8 +8,8 @@ class Simulator(Thread):
     def __init__(self, processor, delay):
         super(Simulator, self).__init__()
         self.processor = processor
-        self.delay = delay * 1000
-        self.still_continue = False
+        self.delay = delay
+        self.still_continue = True
 
     def run(self):
         while self.still_continue:
